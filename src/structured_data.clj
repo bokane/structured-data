@@ -75,17 +75,21 @@
   )
 
 (defn add-author [book new-author]
-  :-)
+
+  (assoc book :authors (conj (get book :authors ) new-author ))
+  )
 
 (defn alive? [author]
   (not (contains? author :death-year))
   )
 
 (defn element-lengths [collection]
-  :-)
+  (map count collection))
 
 (defn second-elements [collection]
-  :-)
+  (let [getsecond (fn [x] (get x 1))]
+    (map getsecond collection))
+  )
 
 (defn titles [books]
   :-)
