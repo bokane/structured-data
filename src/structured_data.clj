@@ -111,19 +111,29 @@
   )
 
 (defn old-book->new-book [book]
-  :-)
+  (assoc book :authors (set (:authors book)))
+  )
 
 (defn has-author? [book author]
-  :-)
+  (contains? (:authors book) author)
+  )
 
 (defn authors [books]
-  :-)
+(apply clojure.set/union (map :authors books))
+  )
 
 (defn all-author-names [books]
-  :-)
+  (map :name (authors books))
+  )
 
 (defn author->string [author]
-  :-)
+  (let [author-name (:name author)
+        author-birthyear (:birth-year author)
+        author-deathyear (:death-year author)]
+    (if (:birth-year author) (str author-name " ("author-birthyear " - " author-deathyear) (str author-name)
+    )
+  )
+  )
 
 (defn authors->string [authors]
   :-)
