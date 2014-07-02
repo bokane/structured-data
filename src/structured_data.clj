@@ -92,19 +92,23 @@
   )
 
 (defn titles [books]
-  :-)
+  (map :title books)
+  )
 
 (defn monotonic? [a-seq]
-  :-)
+   (or (apply >= a-seq) (apply <= a-seq)))
 
 (defn stars [n]
-  :-)
+  (apply str (repeat n "*"))
+  )
 
-(defn toggle [a-set elem]
-  :-)
+(defn toggle [a-set, elem]
+  (if (contains? a-set elem) (disj a-set elem) (conj a-set elem))
+  )
 
 (defn contains-duplicates? [a-seq]
-  :-)
+  (if (= (count a-seq) (count (set a-seq) ) ) false true)
+  )
 
 (defn old-book->new-book [book]
   :-)
